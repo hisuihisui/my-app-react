@@ -1,4 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
+import { StyledJsx } from "./components/StyledJsx";
+import { StyledComponents } from "./components/StyledComponents";
+import { Emotion } from "./components/Emotion";
+import { TailwindCss } from "./components/TailwindCss";
 import { ColoredMessage } from "./components/ColoredMessage";
 
 // 他のファイルで使えるようにexportする
@@ -54,6 +58,13 @@ export const App = () => {
       <ColoredMessage color="pink">元気です！</ColoredMessage>
       <button onClick={onClickButton}>ボタン</button>
       <p>{num}</p>
+      <div></div>
+      <div>
+        <StyledJsx />
+        <StyledComponents />
+        <Emotion />
+        <TailwindCss />
+      </div>
     </Fragment>
   );
 
