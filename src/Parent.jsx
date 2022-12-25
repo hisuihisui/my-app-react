@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
 import { Child1 } from "./components/Child1";
 import { Child4 } from "./components/Child4";
+import { useCallback } from "react";
 
 export const Parent = memo (() => {
   console.log("Parentレンダリング");
@@ -11,9 +12,15 @@ export const Parent = memo (() => {
     serNum(num + 1);
   };
 
-  const onClickReset = () => {
+  // 関数が再生成され、子コンポーネントが再レンダリングされないようにする
+  // 子コンポーネントに渡す関数はuseCallbackを使っておく
+  // 関数内で使用してる変数を依存配列に設定するのを忘れない
+  // const onClickReset = () => {
+  //   serNum(0);
+  // };
+  const onClickReset = useCallback(() => {
     serNum(0);
-  };
+  }, []);
 
   return (
     <>
